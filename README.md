@@ -3,4 +3,5 @@ This is an ASM68k conversion of Esrael Neto's Sonic 2 September 14, 1992 prototy
 
 Credits:
 Esrael L.G. Neto: Original Disassembly
+
 Kurk: Conversion to ASM68k
