@@ -16,6 +16,7 @@ align macro
 	cnop 0,\1
 	endm
                 include 'vars.asm'
+                include 'macros.asm'
                                                
                 dc.l    StackPointer            ; Initial stack pointer value
                 dc.l    ROM_Prog_Start          ; Start of our program in ROM
@@ -80,35 +81,23 @@ align macro
                 dc.l    ErrorTrap               ; Unused (reserved)
                 dc.l    ErrorTrap               ; Unused (reserved)
                 dc.l    ErrorTrap               ; Unused (reserved)
-                dc.l    ErrorTrap               ; Unused (reserved)   
-Console:
-                dc.b    'SEGA MEGA DRIVE (C)'
-Date:                
-                dc.b    'SEGA 1991.APR'
-Title_Local:                                                                          
+                dc.l    ErrorTrap               ; Unused (reserved)
+                dc.b    'SEGA MEGA DRIVE '
+                dc.b    '(C)SEGA 1991.APR'
                 dc.b    'SONIC THE             HEDGEHOG 2                '
-Title_International:                
-                dc.b    'SONIC THE             HEDGEHOG 2                '                                                
-ROM_Serial:
-                dc.b    'GM 00001051-00' 
-ROM_Checksum:
-                dc.w    $264A
-IOSupport:                
+                dc.b    'SONIC THE             HEDGEHOG 2                '
+                dc.b    'GM 00001051-00'
+ROM_Checksum:	dc.w    $264A
                 dc.b    'J               '
-ROM_Start:                
-                dc.l    $00000000                
+                dc.l    $00000000
 ROM_End:                
                 dc.l    $000FFFFF
-RAMStart:                
                 dc.l    $00FF0000
-RAMEnd:                
                 dc.l    $00FFFFFF
-SRAMSupport:               
                 dc.b    '                '
-Notes:                
                 dc.b    '                                                '
-Region:                
                 dc.b    'JUE             '
+
 ;-------------------------------------------------------------------------------                                
 ErrorTrap:                                                     ; Offset_0x000200
                 nop                                                             
